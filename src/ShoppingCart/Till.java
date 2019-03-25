@@ -12,6 +12,13 @@ public class Till implements ITill {
     }
 
     @Override
+    public void addItems(Iterable<IItem> items) {
+        for (IItem item: items) {
+            addItem(item);
+        }
+    }
+
+    @Override
     public int sum() {
         return _sum;
     }

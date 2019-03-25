@@ -3,12 +3,12 @@ package Tests;
 import ShoppingCart.IItem;
 
 /**
- * Implementation of IItem for testimg.
+ * Implementation of IItem for testing.
  */
 public class MockItem implements IItem {
-    private int _price;
+    private final int _price;
     
-    public MockItem(int price) {
+    MockItem(int price) {
         _price = price;
     }
 
