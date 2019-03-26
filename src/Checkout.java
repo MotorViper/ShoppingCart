@@ -1,7 +1,4 @@
-import ShoppingCart.IItem;
-import ShoppingCart.ITill;
-import ShoppingCart.ItemFactory;
-import ShoppingCart.Till;
+import ShoppingCart.*;
 
 import javax.swing.*;
 import java.rmi.UnexpectedException;
@@ -14,6 +11,7 @@ class Checkout {
     private JTextField _totalField;
     private JButton _payButton;
     private JPanel _mainForm;
+    private JCheckBox _specialOffers;
     private final ITill _till;
 
     private Checkout() {
@@ -21,6 +19,19 @@ class Checkout {
         _addButton.addActionListener(e -> addItem());
         _totalButton.addActionListener(e -> displayTotal());
         _payButton.addActionListener(e -> resetTotal());
+        _specialOffers.addActionListener(e -> setSpecialOffers());
+    }
+
+    private void setSpecialOffers() {
+        resetTotal();
+        if (_specialOffers.isSelected()) {
+            IOfferList list = new OfferList();
+            list.addOffer(new AppleOffer());
+            list.addOffer(new OrangeOffer());
+            _till.setOfferList(list);
+        } else {
+            _till.setOfferList(new OfferList());
+        }
     }
 
     private void resetTotal() {

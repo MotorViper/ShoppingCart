@@ -1,8 +1,5 @@
 package ShoppingCart;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Implementation of ITill.
  */
@@ -30,8 +27,10 @@ public class Till implements ITill {
 
     @Override
     public int sum() {
-        if (_offers != null)
+        if (_offers != null) {
             _sum -= _offers.getDiscount();
+            _offers.discountUsed();
+        }
         return _sum;
     }
     

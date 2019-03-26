@@ -1,29 +1,19 @@
 package ShoppingCart;
 
-public class OrangeOffer implements IOffer {
-    private int _count = 0;
-    private int _discount;
+public class OrangeOffer extends OfferBase {
+    public OrangeOffer() {
+        super(ItemFactory.ORANGE);
+    }
 
     @Override
-    public void addItem(IItem item) {
-        if (item.getID() == ItemFactory.ORANGE) {
-            if (_count == 0 || _count == 1) {
-                _count++;
-            } else {
-                _count = 0;
-                _discount += item.getPrice();
-            }
+    public void doAddItem(IItem item) {
+        int count = getCount();
+        if (count == 0 || count == 1) {
+            count++;
+        } else {
+            count = 0;
+            addDiscount(item.getPrice());
         }
-    }
-
-    @Override
-    public int getDiscount() {
-        return _discount;
-    }
-
-    @Override
-    public void reset() {
-        _count = 0;
-        _discount = 0;
+        setCount(count);
     }
 }

@@ -23,4 +23,9 @@ public class MockOffer implements IOffer {
     public void reset() {
         _discount = 0;
     }
+
+    @Override
+    public void discountUsed() {
+        _discount = 0;
+    }
 }

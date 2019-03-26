@@ -22,4 +22,8 @@ public class MockOfferList implements IOfferList {
     @Override
     public void reset() {
     }
+
+    @Override
+    public void discountUsed() {
+    }
 }

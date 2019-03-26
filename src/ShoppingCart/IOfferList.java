@@ -8,4 +8,6 @@ public interface IOfferList {
     int getDiscount();
 
     void reset();
+
+    void discountUsed();
 }

@@ -6,4 +6,6 @@ public interface IOffer {
     int getDiscount();
 
     void reset();
+
+    void discountUsed();
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OfferList implements IOfferList {
-    private final List<IOffer> _offers = new ArrayList<IOffer>();
+    private final List<IOffer> _offers = new ArrayList<>();
 
     @Override
     public void addItem(IItem item) {
@@ -31,6 +31,13 @@ public class OfferList implements IOfferList {
     public void reset() {
         for (IOffer offer: _offers) {
             offer.reset();
+        }
+    }
+
+    @Override
+    public void discountUsed() {
+        for (IOffer offer: _offers) {
+            offer.discountUsed();
         }
     }
 }
